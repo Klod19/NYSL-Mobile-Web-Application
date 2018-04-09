@@ -8,12 +8,28 @@ $(document).ready(function(){
     activateMenu();
 
     function activateMenu(){
+        var value = true // to toggle the input value
         $("#buttonContainer").click(function(e) {//this gets the clicking event!
                 console.log(e);
                 var id = e.target.id // this stores the id of the target of the clicking action
+                var menu = $("#" + id + "_menu")
                 console.log(id)
-                    $("#" + id +"_menu").toggle(1000);
-                })
+                menu.toggle(1000);
+                //try to make the menu not to stack, hide the buttons etc
+//                $(".button").not("#" + id + "_menu").hide();
+//                if($(menu).is(":visible")){
+//                    
+//                }
+            
+            
+            
+                value = ! value
+                if (value == false){
+                    $("#" + id).val(" < back")
+                }
+                else{$("#" + id).val(id)}
+        
+            })
     }
             
             
